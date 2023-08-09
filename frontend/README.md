@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# **Software de control de acceso a áreas restringidas**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Software de seguridad abierto para oganizaciones que cuenten con lugares de acceso restringido, consiste en escanear el código QR de la cédula de identidad y mediante una validación con la base de datos permite o deniega el ingreso al sector o área.
 
-## Available Scripts
+## **Software stack**
 
-In the project directory, you can run:
+La arquitectura de la aplicación web es:
 
-### `npm start`
+-Ubuntu 20.04
+-NodeJS 18.16
+-ReactJS 18.2
+-ExpressJS 4.18.2
+-MySql
+-Prisma db
+-NPM
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# **docker**
 
-### `npm test`
+Se debe abrir un terminal en la carpeta raiz del backend donde se clonó el repositorio
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Se ejecuta el siguiente comando:
 
-### `npm run build`
+```
+cd frontend
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+para construir la imagen del backend se debe ejecutar el siguiente comando:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+docker build -t frontend .
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ya creada la imagen, para correr el contenedor se ejecuta: 
 
-### `npm run eject`
+```
+docker run --rm -ti -p 80:80 -v ${pwd}:/home frontend
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+lo siguiente que se debe hacer es ejecutar los siguientes comandos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+cd home
+yarn install
+yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Clonar el repositorio
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+para obtener el proyecto se debe ejecutar este comando en la carpeta donde desea tenerlo:
 
-## Learn More
+git clone https://github.com/bastianhidalgo/pre-tesis
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Se debe agregar el archivo .env con dos variables:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+SERVIDOR=http://localhost:80/api
 
-### Code Splitting
+Ambiente de desarrollo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Se deben tener corriendo en servidores diferentes, en donde cada uno deben realizarse los pasos de instalacion de dependencias y agregar las variables de entorno.
 
-### Analyzing the Bundle Size
+primero se ingresa en modo root con las credenciales al servidor
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+```
+sudo su
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Actualizar el sistema operativo
 
-### Advanced Configuration
+```
+apt-get update
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Instalar curl para descargar paquetes
 
-### Deployment
+```
+apt-get install -y curl
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Instalar git
 
-### `npm run build` fails to minify
+```
+apt-get install git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Instalar nano
+
+```
+apt-get install nano
+```
+
+Instalar nvm para instalar NodeJS
+
+```
+curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+```
+
+Reiniciar bash para que se puedan utilizar comandos de NVM
+
+```
+exec bash
+```
+
+Instalar version 18.16.0
+
+```
+nvm install 18.16.0
+```
+
+cambiar alias de NodeJS
+
+```
+nvm alias deafult 18.16.0
+```
+
+Cambiar la version de NodeJS
+
+```
+nvm use default
+```
+
+Instalar yarn para instalar dependencias y pm2 para correr la aplicación
+
+```
+npm install -g yarn
+npm install -g pm2
+```
+
+Se sigue con el paso de clonar el repositorio señalado mas arriba.
+
+Se ingresa a la carpeta de backend.
+
+Instalar las dependendencias del proyecto del ambiente de produccion, ingresar el siguiente comando.
+
+
+```
+yarn install
+```
+
+
+para ejecutar la aplicación se ingresa el siguiente comando:
+
+```
+pm2 start yarn -- dev
+```
+
+y para ver el frontend:
+
+```
+http://ipservidor:80
+```

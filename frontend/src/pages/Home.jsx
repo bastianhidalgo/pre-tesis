@@ -1,11 +1,12 @@
-import { Button, Typography,List, ListItem, ListItemText} from '@material-ui/core';
+import { Button} from '@material-ui/core';
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { clienteAxios } from '../clienteAxios';
 
 function Home() {
 
-    let [visitas, setVisitas]= useState([{
+    const [visitas, setVisitas]= useState([{
+        id:'',
         rut:'',
         nombre: '',
         apellido:'',
@@ -23,7 +24,19 @@ function Home() {
           getVisitas()
         },[])
 
+        const deleteVisita = async (e) => {
+          e.preventDefault()
+          try{
+          const response = await clienteAxios.delete(`/usuarios/delete/${visitas.id}`,visitas);
 
+          if(response.status==200){
+          console.log("visita eliminada")
+          }
+          }catch(error){
+            console.log("error al eliminar la visita")
+            console.log(error)
+          }
+        }
 
 
     return (
@@ -75,7 +88,7 @@ function Home() {
                         <td>{visita.apellido}</td>
                         <td>{visita.telefono}</td>
                         <td><Button style={{backgroundColor:'yellow'}}  >Modificar</Button>
-            <Button style={{backgroundColor:'red',marginLeft:40}} >Eliminar</Button></td>
+            <Button style={{backgroundColor:'red',marginLeft:40}} onClick={deleteVisita} >Eliminar</Button></td>
                 </tr>
         )
         })

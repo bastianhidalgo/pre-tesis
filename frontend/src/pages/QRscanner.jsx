@@ -11,6 +11,8 @@ const { getRut } = require('./util');
 function QRscanner() {
 
     const [qrscan, setQrscan] = useState('QR no encontrado');
+    const [estado, setEstado] = useState('');
+    const [rut,setRut]=useState('');
     const handleScan = data => {
         if (data) {
             setQrscan(getRut(data))
@@ -25,8 +27,16 @@ function QRscanner() {
 
     const clearTextBox = () => {
         setQrscan('Ingrese código');
+        setEstado("")
+      };
+      const clearTextBox2 = () => {
+        setRut('');
+        setEstado("")
       };
 
+      const handleChange = (event) => {
+        setRut(event.target.value);
+      };
 
       const compararRut = async () => {
         try{
@@ -35,26 +45,33 @@ function QRscanner() {
 
         if(response.status==200){
         console.log("persona admitida")
-
+        setEstado("persona admitida")
+        
         }
     }catch(error){
          console.log("persona denegada")
+         setEstado("persona rechazada")
+            
+         
         }
     }
-      /*const compararRut2 = async () => {
+      const compararRut2 = async () => {
         try{
             const response = await clienteAxios.get(`/usuarios/comparar/${rut}`);
-
-        if(response.status==200){
-        console.log("persona admitida")
-        console.log(response)
-        }else{
-            console.log("error")
-        }}
-        catch(error){
-            console.log("persona denegada")
-        }
-      }*/
+    
+    
+            if(response.status==200){
+            console.log("persona admitida")
+            setEstado("persona admitida")
+            
+            }
+        }catch(error){
+             console.log("persona denegada")
+             setEstado("persona rechazada")
+                
+             
+            }
+      }
 
 
 
@@ -93,14 +110,17 @@ return (
         Procesar rut </Button>
         <Button onClick={clearTextBox} variant="contained" size="medium" color="primary" style={{marginBottom:50, marginLeft:50}}>
         Limpiar cuadro</Button>
-
-
-        <Typography style={{marginBottom:30}} variant="h5">
+        <div>
+        <label>Estado: {estado}</label>
+        </div>
+        <Typography style={{marginBottom:40,marginTop:30}} variant="h5">
             Ingrese rut en caso de no contar con la cédula
             </Typography>
-        <Input name={'rut'} id="outlined-basic"    style={{height:40, background: "white"}}/>
-        <Button  variant="contained" size="medium" color="primary" style={{ marginLeft:50}}>
+        <Input type='text' value={rut} id='rut' style={{height:40, background: "white"}} onChange={handleChange}/>
+        <Button onClick={compararRut2} variant="contained" size="medium" color="primary" style={{ marginLeft:50}}>
         Procesar rut </Button>
+        <Button onClick={clearTextBox2} variant="contained" size="medium" color="primary" style={{ marginLeft:50}}>
+        Limpiar cuadro</Button>
 </div>
 );
 
