@@ -174,12 +174,12 @@ nano .env
 Se ingresan las siguientes variables:
 
 PORT =80
-DB="url de la conexion con la base de datos"
+DB="mysql://bhidalgo:bastian2023@mysqltrans.face.ubiobio.cl:3306/filtro_visitas?schema=public"
 
 para ejecutar la aplicación se ingresa el siguiente comando:
 
 ```
-pm2 start yarn -- dev
+pm2 start yarn -- start
 ```
 
 y para ver el backend:
