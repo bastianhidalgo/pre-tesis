@@ -142,7 +142,7 @@ yarn install
 para ejecutar la aplicación se ingresa el siguiente comando:
 
 ```
-pm2 start yarn -- dev
+pm2 start yarn -- start
 ```
 
 y para ver el frontend:

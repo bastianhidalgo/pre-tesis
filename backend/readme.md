@@ -174,7 +174,7 @@ nano .env
 Se ingresan las siguientes variables:
 
 PORT =80
-DB="mysql://bhidalgo:bastian2023@mysqltrans.face.ubiobio.cl:3306/filtro_visitas?schema=public"
+DB="url de la base de datos"
 
 para ejecutar la aplicación se ingresa el siguiente comando:
 
