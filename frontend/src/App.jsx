@@ -9,6 +9,8 @@ import {
 import Home from './pages/Home'
 import QRscan from './pages/QRscanner'
 import Visitas from './pages/crearVisita'
+import VerVisita from './pages/verVisita'
+import ModificarVisita from './pages/modificarVisita';
 import InputForm from './components/InputForm';
 
 function App() {
@@ -26,6 +28,12 @@ function App() {
               </Route>
               <Route path="/crearVisita">
               <Visitas/>
+              </Route>
+              <Route path="/verVisita">
+              <VerVisita/>
+              </Route>
+              <Route path="/modificarVisita">
+              <ModificarVisita/>
               </Route>
               <Route path="/InputForm">
               <InputForm/>

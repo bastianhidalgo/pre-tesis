@@ -24,19 +24,6 @@ function Home() {
           getVisitas()
         },[])
 
-        const deleteVisita = async (e) => {
-          e.preventDefault()
-          try{
-          const response = await clienteAxios.delete(`/usuarios/delete/${visitas.id}`,visitas);
-
-          if(response.status==200){
-          console.log("visita eliminada")
-          }
-          }catch(error){
-            console.log("error al eliminar la visita")
-            console.log(error)
-          }
-        }
 
 
     return (
@@ -72,7 +59,7 @@ function Home() {
                         <td >Nombre</td>
                         <td>Apellido</td>
                         <td>Teléfono</td>
-                        <td>Modificar/Eliminar</td>
+                        <td>Modificar/Ver</td>
                 </tr>
         
       </tbody>
@@ -80,15 +67,24 @@ function Home() {
 
       <table style={{textAlign:"start",borderSpacing:100,marginTop:-180, borderColor:"#819FF7",borderRadius: "20px"}} borderColor={"blue"}>
         <tbody border={"5"}>{
+
            visitas.map((visita,idx)=>{
+            console.log(visita.id)
             return (
                <tr key={idx}>
                         <td >{visita.rut}</td>
                         <td >{visita.nombre}</td>
                         <td>{visita.apellido}</td>
                         <td>{visita.telefono}</td>
-                        <td><Button style={{backgroundColor:'yellow'}}  >Modificar</Button>
-            <Button style={{backgroundColor:'red',marginLeft:40}} onClick={deleteVisita} >Eliminar</Button></td>
+                        <td>
+                          <Link to={`modificarVisita/${visita.id}`}>
+                          <Button style={{backgroundColor:'yellow'}}  >Modificar</Button>
+                        </Link>
+                        <Link to={`verVisita/${visita.id}`}>
+            <Button style={{backgroundColor:'green',marginLeft:40}}  >Ver</Button>
+            </Link>
+            </td>
+            
                 </tr>
         )
         })
@@ -106,7 +102,9 @@ function Home() {
     );
     }
     export default Home;
-     /* <table style={{textAlign:"center"}} variant="simple">
+     /* 
+     
+     <table style={{textAlign:"center"}} variant="simple">
             <thead >
               <tr >
                 <td fontWeight={"bold"}>Rut</td>

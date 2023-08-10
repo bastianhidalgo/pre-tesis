@@ -1,4 +1,4 @@
-function getRut(req) {
+function GetRut(req) {
     let s = req.split('=');
     let numero = s[3].split('&');
     s = s[1].split('&');
@@ -8,7 +8,12 @@ function getRut(req) {
 
     return serial;
 }
+function UseRegexRut(input) {
+    let regex = /^[0-9]{1,2}(\.|)[0-9]{3}(\.|)[0-9]{3}(-|)[0-9kK]{1}$/;
+    return regex.test(input);
+}
 
 module.exports={
-    getRut
+    GetRut,
+    UseRegexRut
 }

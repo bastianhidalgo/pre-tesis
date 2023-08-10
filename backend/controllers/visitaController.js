@@ -1,5 +1,5 @@
 const { useRegexNombre,useRegexTelefono, useRegexRut } = require('../utils/util');
-
+const Rut=require('rut.js')
 const {PrismaClient} = require("@prisma/client");
 const prisma = new PrismaClient();
 

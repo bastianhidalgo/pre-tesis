@@ -185,5 +185,5 @@ pm2 start yarn -- dev
 y para ver el backend:
 
 ```
-http://ipservidor:1332
+http://ipservidor:1308
 ```

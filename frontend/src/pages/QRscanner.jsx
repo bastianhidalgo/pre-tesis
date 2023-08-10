@@ -4,8 +4,8 @@ import {ArrowBack} from '@material-ui/icons'
 import { Link } from "react-router-dom";
 import QrScan from 'react-qr-reader'
 import { clienteAxios } from '../clienteAxios';
-
-const { getRut } = require('./util');
+const {Rut}=require ('rut.js')
+const { GetRut, UseRegexRut } = require('./util');
 
 
 function QRscanner() {
@@ -15,9 +15,9 @@ function QRscanner() {
     const [rut,setRut]=useState('');
     const handleScan = data => {
         if (data) {
-            setQrscan(getRut(data))
+            setQrscan(GetRut(data))
 
-            console.log(getRut(data));
+            console.log(GetRut(data));
 
         }
     }
@@ -56,10 +56,16 @@ function QRscanner() {
         }
     }
       const compararRut2 = async () => {
+                
+            if(!UseRegexRut(rut)){
+                setEstado("Rut invalido")
+                return }
+
+
         try{
             const response = await clienteAxios.get(`/usuarios/comparar/${rut}`);
     
-    
+
             if(response.status==200){
             console.log("persona admitida")
             setEstado("persona admitida")
@@ -73,7 +79,10 @@ function QRscanner() {
             }
       }
 
-
+      function validarRut(rut) {
+        const cleanRut = Rut(rut).clean();
+        return Rut(cleanRut).validate();
+      }
 
 
 
