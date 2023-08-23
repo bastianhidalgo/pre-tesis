@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import {ArrowBack} from '@material-ui/icons'
 import { Link } from "react-router-dom";
 import { clienteAxios } from '../clienteAxios';
 
@@ -42,9 +41,8 @@ const Visitas = () =>{
         <div style={{marginBottom:650, marginTop:30}}>
             <div style={{marginTop:100, marginRight:1200}}>
             <Link to="/">
-            <fab style={{marginRight:10,backgroundColor:'white'}} color="white">
-                <ArrowBack/>
-            </fab>
+            <button style={{marginRight:10}} color="primary">Volver
+            </button>
             </Link>
             <span>Volver</span>
             </div>

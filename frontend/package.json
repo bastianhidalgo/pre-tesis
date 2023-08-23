@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@mdi/font": "^7.1.96",
     "@mdi/js": "^7.1.96",
@@ -19,7 +18,7 @@
     "node": "^20.5.0",
     "nodemon": "^3.0.1",
     "qrcode.react": "^3.1.0",
-    "react": "16.0.0",
+    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.0",
     "react-qr-reader": "2.2.1",

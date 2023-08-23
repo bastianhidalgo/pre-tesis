@@ -76,12 +76,9 @@ function Home() {
                         <td>{visita.apellido}</td>
                         <td>{visita.telefono}</td>
                         <td>
-                          <Link to={`modificarVisita/${visita.id}`}>
                           <button style={{backgroundColor:'yellow'}}  >Modificar</button>
-                        </Link>
-                        <Link to={`verVisita/${visita.id}`}>
             <button style={{backgroundColor:'green',marginLeft:40}}  >Ver</button>
-            </Link>
+            
             </td>
             
                 </tr>

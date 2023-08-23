@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {ArrowBack} from '@material-ui/icons'
 import { Link } from "react-router-dom";
 import QrScan from 'react-qr-reader'
 import { clienteAxios } from '../clienteAxios';
@@ -84,11 +83,10 @@ return (
     <div>
         <div style={{marginBottom:50, marginRight:1200}}>
             <Link to="/">
-            <fab style={{marginRight:10}} color="primary">
-                <ArrowBack/>
-            </fab>
+            <button style={{marginRight:10}} color="primary">Volver
+            </button>
             </Link>
-            <span>Volver</span>
+            <span></span>
             </div>
             <center>
                 <span>Escanear código QR</span>
