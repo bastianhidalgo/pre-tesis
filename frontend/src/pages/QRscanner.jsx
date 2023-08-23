@@ -79,11 +79,6 @@ function QRscanner() {
             }
       }
 
-      function validarRut(rut) {
-        const cleanRut = Rut(rut).clean();
-        return Rut(cleanRut).validate();
-      }
-
 
 
 return (

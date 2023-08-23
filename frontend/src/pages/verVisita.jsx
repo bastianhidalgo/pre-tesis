@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react';
+import React,{ useState } from 'react';
 import {  Button, Fab} from '@material-ui/core';
 import {ArrowBack} from '@material-ui/icons'
 import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import { clienteAxios } from '../clienteAxios';
 
 const VerVisita = () =>{
 
-  const [visita, setVisita]= useState([{
+  const [visita]= useState([{
     id:'',
     rut:'',
     nombre:'',
@@ -16,17 +16,6 @@ const VerVisita = () =>{
     telefono: '',
   }])
    
-
-
-
-    const handleChange=(e) =>{
-        setVisita({
-            ... visita,
-            [e.target.name]: e.target.value
-        })
-    }
-
-
     const deleteVisita = async (e) => {
         e.preventDefault()
         try{
