@@ -43,9 +43,9 @@ const Visitas = () =>{
         <div style={{marginBottom:650, marginTop:30}}>
             <div style={{marginTop:100, marginRight:1200}}>
             <Link to="/">
-            <Fab style={{marginRight:10}} color="primary">
+            <fab style={{marginRight:10,backgroundColor:'white'}} color="white">
                 <ArrowBack/>
-            </Fab>
+            </fab>
             </Link>
             <span>Volver</span>
             </div>
@@ -59,22 +59,22 @@ const Visitas = () =>{
             <tbody>
                 <td>
                 <label >Rut:</label>
-                <Input  style={{borderRadius: "5px",marginTop:30,marginLeft: 50 , height:40, background: "white"}} label="Rut" onChange={handleChange} name="rut" placeholder="Ingrese rut" type="text" value={visita.rut} />
+                <input  style={{borderRadius: "5px",marginTop:30,marginLeft: 50 , height:40, background: "white"}} label="Rut" onChange={handleChange} name="rut" placeholder="Ingrese rut" type="text" value={visita.rut} />
                 <div></div>
                 <label>Nombre:</label>
-                <Input style={{borderRadius: "5px",marginTop:30,marginLeft: 50 , height:40, background: "white"}} label="Nombre" onChange={handleChange} name="nombre"  type="text"  value={visita.nombre} placeholder="Ingrese nombre" />
+                <input style={{borderRadius: "5px",marginTop:30,marginLeft: 50 , height:40, background: "white"}} label="Nombre" onChange={handleChange} name="nombre"  type="text"  value={visita.nombre} placeholder="Ingrese nombre" />
                 </td>
                 <td>
                 <label>Apellido:</label>
-                <Input style={{borderRadius: "5px",marginTop:30,marginLeft: 50 , height:40, background: "white"}} label="Apellido" onChange={handleChange} name="apellido" value={visita.apellido} type="text" placeholder="Ingrese apellido" />
+                <input style={{borderRadius: "5px",marginTop:30,marginLeft: 50 , height:40, background: "white"}} label="Apellido" onChange={handleChange} name="apellido" value={visita.apellido} type="text" placeholder="Ingrese apellido" />
                 <div></div>
                 <label>Teléfono:</label>
-                <Input style={{borderRadius: "5px",marginTop:30,marginLeft: 50 ,height:40, background: "white"}} label="Telefono" onChange={handleChange}  name="telefono" value={visita.telefono}  type="text" placeholder="Ingrese teléfono" />
+                <input style={{borderRadius: "5px",marginTop:30,marginLeft: 50 ,height:40, background: "white"}} label="Telefono" onChange={handleChange}  name="telefono" value={visita.telefono}  type="text" placeholder="Ingrese teléfono" />
 
             </td>
             </tbody>
         </table>
-        <Button style={{borderRadius: "5px"}} variant="contained" size="large" color="primary"  onClick={submitVisita}  >Registrar</Button>
+        <button style={{borderRadius: "5px"}} variant="contained" size="large" color="primary"  onClick={submitVisita}  >Registrar</button>
 
         </form>
 

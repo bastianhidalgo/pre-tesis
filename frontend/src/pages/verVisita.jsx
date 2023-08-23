@@ -1,5 +1,4 @@
 import React,{ useState } from 'react';
-import {  Button, Fab} from '@material-ui/core';
 import {ArrowBack} from '@material-ui/icons'
 import { Link } from "react-router-dom";
 import { clienteAxios } from '../clienteAxios';
@@ -34,9 +33,9 @@ const VerVisita = () =>{
         <div style={{marginBottom:650, marginTop:30}}>
             <div style={{marginTop:100, marginRight:1200}}>
             <Link to="/">
-            <Fab style={{marginRight:10}} color="primary">
+            <fab style={{marginRight:10}} color="primary">
                 <ArrowBack/>
-            </Fab>
+            </fab>
             </Link>
             <span>Volver</span>
             </div>
@@ -65,7 +64,7 @@ const VerVisita = () =>{
             </td>
             </tbody>
         </table>
-        <Button style={{borderRadius: "5px"}} variant="contained" size="large" color="primary"  onClick={deleteVisita}  >Eliminar visita</Button>
+        <button style={{borderRadius: "5px"}} variant="contained" size="large" color="primary"  onClick={deleteVisita}  >Eliminar visita</button>
 
         </form>
 

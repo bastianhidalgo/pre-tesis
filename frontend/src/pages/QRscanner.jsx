@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {Button,Fab, TextareaAutosize,Input,Typography } from '@material-ui/core'
 import {ArrowBack} from '@material-ui/icons'
 import { Link } from "react-router-dom";
 import QrScan from 'react-qr-reader'
@@ -85,9 +84,9 @@ return (
     <div>
         <div style={{marginBottom:50, marginRight:1200}}>
             <Link to="/">
-            <Fab style={{marginRight:10}} color="primary">
+            <fab style={{marginRight:10}} color="primary">
                 <ArrowBack/>
-            </Fab>
+            </fab>
             </Link>
             <span>Volver</span>
             </div>
@@ -104,27 +103,27 @@ return (
             </center>
 
 
-            <TextareaAutosize
+            <textarea
                 style={{fontSize:18, width:320, height:50, marginTop:100}}
                 maxRows={4}
                 value= {qrscan}
                 />
 
-        <Button onClick={compararRut} variant="contained" size="medium" color="primary" style={{marginBottom:50, marginLeft:50}}>
-        Procesar rut </Button>
-        <Button onClick={clearTextBox} variant="contained" size="medium" color="primary" style={{marginBottom:50, marginLeft:50}}>
-        Limpiar cuadro</Button>
+        <button onClick={compararRut} variant="contained" size="medium" color="primary" style={{marginBottom:50, marginLeft:50,backgroundColor:'blue'}}>
+        Procesar rut </button>
+        <button onClick={clearTextBox} variant="contained" size="medium" color="primary" style={{marginBottom:50, marginLeft:50,backgroundColor:'blue'}}>
+        Limpiar cuadro</button>
         <div>
         <label>Estado: {estado}</label>
         </div>
-        <Typography style={{marginBottom:40,marginTop:30}} variant="h5">
+        <h4 style={{marginBottom:40,marginTop:30}} variant="h5">
             Ingrese rut en caso de no contar con la cédula
-            </Typography>
-        <Input type='text' value={rut} id='rut' style={{height:40, background: "white"}} onChange={handleChange}/>
-        <Button onClick={compararRut2} variant="contained" size="medium" color="primary" style={{ marginLeft:50}}>
-        Procesar rut </Button>
-        <Button onClick={clearTextBox2} variant="contained" size="medium" color="primary" style={{ marginLeft:50}}>
-        Limpiar cuadro</Button>
+            </h4>
+        <input type='text' value={rut} id='rut' style={{height:40, background: "white"}} onChange={handleChange}/>
+        <button onClick={compararRut2} variant="contained" size="medium" color="primary" style={{ marginLeft:50,backgroundColor:'blue'}}>
+        Procesar rut </button>
+        <button onClick={clearTextBox2} variant="contained" size="medium" color="primary" style={{ marginLeft:50,backgroundColor:'blue'}}>
+        Limpiar cuadro</button>
 </div>
 );
 
