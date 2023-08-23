@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom";
-import QrScan from 'react-qr-reader'
 import { clienteAxios } from '../clienteAxios';
 const {Rut}=require ('rut.js')
 const { GetRut, UseRegexRut } = require('./util');
@@ -11,6 +10,7 @@ function QRscanner() {
     const [qrscan, setQrscan] = useState('QR no encontrado');
     const [estado, setEstado] = useState('');
     const [rut,setRut]=useState('');
+
     const handleScan = data => {
         if (data) {
             setQrscan(GetRut(data))
@@ -91,12 +91,7 @@ return (
             <center>
                 <span>Escanear código QR</span>
             <div style={{marginTop:30,marginBottom:30}}>
-                <QrScan
-                    delay={300}
-                    onError={handleError}
-                    onScan={handleScan}
-                    style={{ height: 240, width: 320 }}
-                />
+
 </div>
             </center>
 
